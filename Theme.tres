@@ -1,0 +1,58 @@
+[gd_resource type="Theme" format=3 uid="uid://bovgpbnh870p3"]
+
+[ext_resource type="FontFile" uid="uid://b4ahdsf8igibv" path="res://Font/Schoolbell-Regular.ttf" id="1_yd3fu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_devvj"]
+bg_color = Color(0.3226048, 0.4138207, 0.2035861, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg4s2"]
+bg_color = Color(0.49818182, 0.6514778, 0.4441015, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcpw"]
+bg_color = Color(0.52093375, 0.6479039, 0.40826648, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b0ty"]
+bg_color = Color(0.44742805, 0.669822, 0.3761561, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd3fu"]
+bg_color = Color(0.8217887, 0.8217887, 0.8217885, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.7176471)
+Button/font_sizes/font_size = 19
+Button/fonts/font = ExtResource("1_yd3fu")
+Button/styles/disabled = SubResource("StyleBoxFlat_devvj")
+Button/styles/focus = SubResource("StyleBoxFlat_bg4s2")
+Button/styles/hover = SubResource("StyleBoxFlat_hhcpw")
+Button/styles/normal = SubResource("StyleBoxFlat_3b0ty")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("1_yd3fu")
+Panel/styles/panel = SubResource("StyleBoxFlat_yd3fu")

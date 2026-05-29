@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b358gc3akl85n"]
+
+[ext_resource type="Script" uid="uid://dtx3ih0i3to57" path="res://NutSpawner.gd" id="1_xyfcb"]
+[ext_resource type="PackedScene" uid="uid://bwf6m0t5ajqe3" path="res://Assets/Nut.tscn" id="2_68sc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vvyt"]
+size = Vector2(439, 419.25)
+
+[node name="NutSpawnArea" type="Area2D" unique_id=1039843602 node_paths=PackedStringArray("spawnArea")]
+script = ExtResource("1_xyfcb")
+spawnArea = NodePath("NutSpawnShape")
+nutScene = ExtResource("2_68sc5")
+
+[node name="NutSpawnShape" type="CollisionShape2D" parent="." unique_id=1057354347]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_5vvyt")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwf6m0t5ajqe3"]
+
+[ext_resource type="Script" uid="uid://bthjsrdnb6f8c" path="res://Nut.gd" id="1_b5t5e"]
+[ext_resource type="Texture2D" uid="uid://ca5dc3iwmfkkv" path="res://Sprites/nut.png" id="2_gr86v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vvyt"]
+radius = 144.0
+height = 356.0
+
+[node name="Nut" type="Area2D" unique_id=87613463 groups=["nut"]]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_b5t5e")
+
+[node name="NutCollision" type="CollisionShape2D" parent="." unique_id=1868625642]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_5vvyt")
+
+[node name="NutSprite" type="Sprite2D" parent="." unique_id=69961085]
+texture = ExtResource("2_gr86v")

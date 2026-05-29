@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://dnlcsndmas43s"]
+
+[ext_resource type="Script" uid="uid://cri2fk2mtb6it" path="res://GameManager.gd" id="1_c6i3y"]
+[ext_resource type="AudioStream" uid="uid://d31lniieh6u0r" path="res://Sounds/1.ogg" id="2_sqvbp"]
+[ext_resource type="AudioStream" uid="uid://dv2k5uecwcwdc" path="res://Sounds/2.ogg" id="3_hri7i"]
+[ext_resource type="AudioStream" uid="uid://cibfo1fi2c1xn" path="res://Sounds/3.ogg" id="4_w3rk5"]
+[ext_resource type="AudioStream" uid="uid://bbmni36prsjlj" path="res://Sounds/4.ogg" id="5_5mvff"]
+[ext_resource type="AudioStream" uid="uid://vpu13cbt37sl" path="res://Sounds/5.ogg" id="6_oye8v"]
+[ext_resource type="AudioStream" uid="uid://rntcpv1tnsc" path="res://Sounds/6.ogg" id="7_40n85"]
+[ext_resource type="AudioStream" uid="uid://cveig4ttifdjs" path="res://Sounds/7.ogg" id="8_gb15f"]
+[ext_resource type="AudioStream" uid="uid://74vfnd62valf" path="res://Sounds/8.ogg" id="9_sph85"]
+[ext_resource type="AudioStream" uid="uid://sb33lr8pmtgj" path="res://Sounds/9.ogg" id="10_o7g6l"]
+[ext_resource type="AudioStream" uid="uid://b20e7ppdjw75c" path="res://Sounds/10.ogg" id="11_vi5kq"]
+[ext_resource type="AudioStream" uid="uid://ccrvjjasv00hk" path="res://Sounds/11.ogg" id="12_5mkgo"]
+[ext_resource type="AudioStream" uid="uid://cmhwmfw88v7wg" path="res://Sounds/12.ogg" id="13_3ccbu"]
+[ext_resource type="AudioStream" uid="uid://b0cwa8vuv5svf" path="res://Sounds/13.ogg" id="14_ny7u2"]
+[ext_resource type="AudioStream" uid="uid://dsasf60f3clmf" path="res://Sounds/14.ogg" id="15_x3yn0"]
+[ext_resource type="AudioStream" uid="uid://ddcrguq0e77vf" path="res://Sounds/15.ogg" id="16_1w2xm"]
+[ext_resource type="AudioStream" uid="uid://s3kfj6j3rpld" path="res://Sounds/16.ogg" id="17_3b0ty"]
+[ext_resource type="AudioStream" uid="uid://bok72n5ju1non" path="res://Sounds/victory.ogg" id="17_hri7i"]
+[ext_resource type="AudioStream" uid="uid://dxuisctd0sow4" path="res://Sounds/0.ogg" id="18_devvj"]
+[ext_resource type="Texture2D" uid="uid://rnm1m87c4gas" path="res://Sprites/squirrel.png" id="19_3b0ty"]
+[ext_resource type="PackedScene" uid="uid://cgacraqkawwqv" path="res://Assets/Basket.tscn" id="20_3b0ty"]
+[ext_resource type="AudioStream" uid="uid://cuva36r10ep2" path="res://Sounds/ik_wil.ogg" id="20_mxvw5"]
+[ext_resource type="PackedScene" uid="uid://b358gc3akl85n" path="res://Assets/NutSpawnArea.tscn" id="21_bg4s2"]
+[ext_resource type="AudioStream" uid="uid://g1lcfyjh026c" path="res://Sounds/nootjes.ogg" id="21_xrxkg"]
+[ext_resource type="AudioStream" uid="uid://byvdtx8ae8rj0" path="res://Sounds/dankjewel.ogg" id="22_sqvbp"]
+[ext_resource type="Texture2D" uid="uid://clvhw4bkdtsgq" path="res://Sprites/background.png" id="23_bg4s2"]
+[ext_resource type="Theme" uid="uid://bovgpbnh870p3" path="res://Theme.tres" id="24_xrxkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_devvj"]
+atlas = ExtResource("19_3b0ty")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b0ty"]
+atlas = ExtResource("19_3b0ty")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
+atlas = ExtResource("19_3b0ty")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
+atlas = ExtResource("19_3b0ty")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpfj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_devvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b0ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg4s2")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhcpw")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[node name="root" type="Node2D" unique_id=1911246021]
+script = ExtResource("1_c6i3y")
+countSounds = Array[AudioStream]([ExtResource("2_sqvbp"), ExtResource("3_hri7i"), ExtResource("4_w3rk5"), ExtResource("5_5mvff"), ExtResource("6_oye8v"), ExtResource("7_40n85"), ExtResource("8_gb15f"), ExtResource("9_sph85"), ExtResource("10_o7g6l"), ExtResource("11_vi5kq"), ExtResource("12_5mkgo"), ExtResource("13_3ccbu"), ExtResource("14_ny7u2"), ExtResource("15_x3yn0"), ExtResource("16_1w2xm"), ExtResource("17_3b0ty")])
+victorySound = ExtResource("17_hri7i")
+nulSound = ExtResource("18_devvj")
+wantSound = ExtResource("20_mxvw5")
+nutsSound = ExtResource("21_xrxkg")
+thanksSound = ExtResource("22_sqvbp")
+
+[node name="Squirrel" type="AnimatedSprite2D" parent="." unique_id=1395680860]
+texture_filter = 1
+position = Vector2(154, 163.00002)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fpfj3")
+animation = &"dance"
+
+[node name="BasketArea" parent="." unique_id=1393558859 instance=ExtResource("20_3b0ty")]
+position = Vector2(296, 434)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=223336712]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1192024321]
+anchors_preset = -1
+anchor_left = 0.975
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.025
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("24_xrxkg")
+text = "controleer"
+
+[node name="CountLabel" type="Label" parent="CanvasLayer" unique_id=244318830]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -13.5
+offset_right = 0.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("24_xrxkg")
+theme_override_colors/font_color = Color(0.8474744, 0.84747446, 0.84747446, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 250
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=101370183]
+offset_left = 224.0
+offset_top = 12.0
+offset_right = 474.0
+offset_bottom = 87.0
+theme = ExtResource("24_xrxkg")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1231569367]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("24_xrxkg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NutSpawnArea" parent="." unique_id=1039843602 instance=ExtResource("21_bg4s2")]
+position = Vector2(906, 404)
+
+[node name="Timer" type="Timer" parent="." unique_id=1512020513]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1381307392]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1599433402]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -600.0
+offset_right = 947.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+theme = ExtResource("24_xrxkg")
+texture = ExtResource("23_bg4s2")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
