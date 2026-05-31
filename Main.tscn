@@ -25,8 +25,12 @@
 [ext_resource type="PackedScene" uid="uid://b358gc3akl85n" path="res://Assets/NutSpawnArea.tscn" id="21_bg4s2"]
 [ext_resource type="AudioStream" uid="uid://g1lcfyjh026c" path="res://Sounds/nootjes.ogg" id="21_xrxkg"]
 [ext_resource type="AudioStream" uid="uid://byvdtx8ae8rj0" path="res://Sounds/dankjewel.ogg" id="22_sqvbp"]
+[ext_resource type="AudioStream" uid="uid://cx18s415vn1k0" path="res://Sounds/try_again.ogg" id="23_5mvff"]
 [ext_resource type="Texture2D" uid="uid://clvhw4bkdtsgq" path="res://Sprites/background.png" id="23_bg4s2"]
 [ext_resource type="Theme" uid="uid://bovgpbnh870p3" path="res://Theme.tres" id="24_xrxkg"]
+[ext_resource type="Texture2D" uid="uid://b7wvbgd18gqyq" path="res://Sprites/check.png" id="26_hri7i"]
+[ext_resource type="Texture2D" uid="uid://brreaxnayqwox" path="res://Sprites/retry.png" id="27_w3rk5"]
+[ext_resource type="Texture2D" uid="uid://dqu7nt3be6pq8" path="res://Sprites/next.png" id="29_oye8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_devvj"]
 atlas = ExtResource("19_3b0ty")
@@ -39,6 +43,10 @@ region = Rect2(48, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
 atlas = ExtResource("19_3b0ty")
 region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mvff"]
+atlas = ExtResource("19_3b0ty")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
 atlas = ExtResource("19_3b0ty")
@@ -62,6 +70,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5mvff")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hhcpw")
 }],
 "loop": true,
@@ -77,16 +93,18 @@ nulSound = ExtResource("18_devvj")
 wantSound = ExtResource("20_mxvw5")
 nutsSound = ExtResource("21_xrxkg")
 thanksSound = ExtResource("22_sqvbp")
+tryAgainSound = ExtResource("23_5mvff")
 
 [node name="Squirrel" type="AnimatedSprite2D" parent="." unique_id=1395680860]
 texture_filter = 1
-position = Vector2(154, 163.00002)
-scale = Vector2(5, 5)
+position = Vector2(161, 164)
+scale = Vector2(6.9096146, 6.9096146)
 sprite_frames = SubResource("SpriteFrames_fpfj3")
-animation = &"dance"
+animation = &"idle"
 
 [node name="BasketArea" parent="." unique_id=1393558859 instance=ExtResource("20_3b0ty")]
-position = Vector2(296, 434)
+position = Vector2(899, 426.00003)
+scale = Vector2(0.64605963, 0.64605963)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=223336712]
 
@@ -96,13 +114,55 @@ anchor_left = 0.975
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.025
-offset_left = -100.0
-offset_bottom = 50.0
+offset_left = -100.20007
+offset_top = 167.8
+offset_right = -0.20007324
+offset_bottom = 217.8
 grow_horizontal = 0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("24_xrxkg")
-text = "controleer"
+icon = ExtResource("26_hri7i")
+icon_alignment = 1
+expand_icon = true
+
+[node name="RetryButton" type="Button" parent="CanvasLayer" unique_id=348871967]
+visible = false
+anchors_preset = -1
+anchor_left = 0.975
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.025
+offset_left = -100.20007
+offset_top = 167.8
+offset_right = -0.20007324
+offset_bottom = 217.8
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("24_xrxkg")
+icon = ExtResource("27_w3rk5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="NextButton" type="Button" parent="CanvasLayer" unique_id=1721591446]
+visible = false
+anchors_preset = -1
+anchor_left = 0.975
+anchor_top = 0.025
+anchor_right = 0.975
+anchor_bottom = 0.025
+offset_left = -100.20007
+offset_top = 167.8
+offset_right = -0.20007324
+offset_bottom = 217.8
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("24_xrxkg")
+icon = ExtResource("29_oye8v")
+icon_alignment = 1
+expand_icon = true
 
 [node name="CountLabel" type="Label" parent="CanvasLayer" unique_id=244318830]
 anchors_preset = 8
@@ -123,10 +183,10 @@ theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 250
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=101370183]
-offset_left = 224.0
-offset_top = 12.0
-offset_right = 474.0
-offset_bottom = 87.0
+offset_left = 247.0
+offset_top = 7.0
+offset_right = 497.0
+offset_bottom = 82.0
 theme = ExtResource("24_xrxkg")
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1231569367]
@@ -137,15 +197,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("24_xrxkg")
+theme_override_font_sizes/font_size = 26
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NutSpawnArea" parent="." unique_id=1039843602 instance=ExtResource("21_bg4s2")]
-position = Vector2(906, 404)
+position = Vector2(318, 422)
 
 [node name="Timer" type="Timer" parent="." unique_id=1512020513]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1381307392]
+volume_db = 6.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1599433402]
 z_index = -1
@@ -163,4 +225,7 @@ theme = ExtResource("24_xrxkg")
 texture = ExtResource("23_bg4s2")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_retry_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

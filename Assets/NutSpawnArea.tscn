@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bwf6m0t5ajqe3" path="res://Assets/Nut.tscn" id="2_68sc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vvyt"]
-size = Vector2(439, 419.25)
+size = Vector2(600.75, 419.25)
 
 [node name="NutSpawnArea" type="Area2D" unique_id=1039843602 node_paths=PackedStringArray("spawnArea")]
 script = ExtResource("1_xyfcb")
@@ -12,5 +12,4 @@ spawnArea = NodePath("NutSpawnShape")
 nutScene = ExtResource("2_68sc5")
 
 [node name="NutSpawnShape" type="CollisionShape2D" parent="." unique_id=1057354347]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_5vvyt")

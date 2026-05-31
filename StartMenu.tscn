@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dcxk1jjw2ko6i"]
+
+[ext_resource type="Texture2D" uid="uid://rnm1m87c4gas" path="res://Sprites/squirrel.png" id="1_0d5ky"]
+[ext_resource type="Script" uid="uid://fm5qtttvpdkf" path="res://StartMenu.gd" id="1_7htnq"]
+[ext_resource type="AudioStream" uid="uid://cmhxn0o2x5hi2" path="res://Sounds/start.ogg" id="2_3wf2c"]
+[ext_resource type="Theme" uid="uid://bovgpbnh870p3" path="res://Theme.tres" id="2_7htnq"]
+[ext_resource type="Texture2D" uid="uid://clvhw4bkdtsgq" path="res://Sprites/background.png" id="3_3wf2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_devvj"]
+atlas = ExtResource("1_0d5ky")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b0ty"]
+atlas = ExtResource("1_0d5ky")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg4s2"]
+atlas = ExtResource("1_0d5ky")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mvff"]
+atlas = ExtResource("1_0d5ky")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhcpw"]
+atlas = ExtResource("1_0d5ky")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo4tm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_devvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b0ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg4s2")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mvff")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhcpw")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[node name="StartMenu" type="Node2D" unique_id=721792472]
+script = ExtResource("1_7htnq")
+startSound = ExtResource("2_3wf2c")
+
+[node name="Squirrel" type="AnimatedSprite2D" parent="." unique_id=1466379156]
+texture_filter = 1
+position = Vector2(397, 407.00003)
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_lo4tm")
+animation = &"idle"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=249487255]
+volume_db = 6.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=678233539]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -600.0
+offset_right = 947.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+theme = ExtResource("2_7htnq")
+texture = ExtResource("3_3wf2c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=780360967]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=108616661]
+offset_left = 731.0
+offset_top = 211.0
+offset_right = 1033.0
+offset_bottom = 455.0
+theme = ExtResource("2_7htnq")
+theme_override_font_sizes/font_size = 150
+text = "Start"
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1778485293]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=493192451]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_start_button_pressed"]

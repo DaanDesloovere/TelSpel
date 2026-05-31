@@ -30,6 +30,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23v3e"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd3fu"]
 bg_color = Color(0.8217887, 0.8217887, 0.8217885, 1)
 border_width_left = 3
@@ -52,6 +54,7 @@ Button/styles/disabled = SubResource("StyleBoxFlat_devvj")
 Button/styles/focus = SubResource("StyleBoxFlat_bg4s2")
 Button/styles/hover = SubResource("StyleBoxFlat_hhcpw")
 Button/styles/normal = SubResource("StyleBoxFlat_3b0ty")
+Button/styles/pressed = SubResource("StyleBoxFlat_23v3e")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 19
 Label/fonts/font = ExtResource("1_yd3fu")

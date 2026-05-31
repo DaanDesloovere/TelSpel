@@ -6,6 +6,8 @@ extends Node2D
 @onready var squirrel: AnimatedSprite2D = $Squirrel
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer
 @onready var button: Button = $CanvasLayer/Button
+@onready var retryButton : Button = $CanvasLayer/RetryButton
+@onready var nextButton : Button = $CanvasLayer/NextButton
 
 @export var countSounds: Array[AudioStream]  # drag in sounds 1.wav, 2.wav... in order
 @export var victorySound: AudioStream
@@ -13,6 +15,8 @@ extends Node2D
 @export var wantSound: AudioStream
 @export var nutsSound: AudioStream
 @export var thanksSound: AudioStream
+@export var tryAgainSound: AudioStream
+@export var startSound: AudioStream
 
 var count = 0
 var nutsInBasket: Array[Area2D]
@@ -21,7 +25,7 @@ var yOffset : int = 0
 
 func _ready() -> void:
 	wantedNuts = randi_range(2, 10)
-	squirrelLabel.text = "Ik wil " + str(wantedNuts) + " nootjes."
+	squirrelLabel.text = "Ik wil " + str(wantedNuts) + " eikels."
 	playIntro()
 
 # play the intro sound saying how many nuts the squirrel wants.
@@ -37,9 +41,6 @@ func playIntro() -> void:
 
 # either count the nuts or reset the game
 func _on_button_pressed() -> void:
-	if button.text == "opnieuw":
-		get_tree().reload_current_scene()
-		return
 	button.disabled = true
 	nutsInBasket = basket.get_overlapping_areas().filter(
 		func(a): return a.is_in_group("nut")
@@ -48,6 +49,7 @@ func _on_button_pressed() -> void:
 
 func start_counting():
 	count = 0
+	yOffset = 0
 	$Timer.start()
 
 # count every second
@@ -57,9 +59,12 @@ func _on_timer_timeout():
 		$Timer.stop()
 		audioPlayer.stream = nulSound
 		audioPlayer.play()
+		await audioPlayer.finished
+		audioPlayer.stream = tryAgainSound
+		audioPlayer.play()
 		squirrel.play("sad")
-		button.text = "opnieuw"
-		button.disabled = false
+		button.visible = false
+		retryButton.visible = true
 		return
 
 	# line up the nuts
@@ -93,9 +98,28 @@ func _on_timer_timeout():
 			squirrel.play("dance")
 			audioPlayer.stream = victorySound
 			audioPlayer.play()
+			nextButton.visible = true
 		else:
 			# verkeerd aantal noten
+			audioPlayer.stream = tryAgainSound
+			audioPlayer.play()
 			squirrel.play("sad")
+			retryButton.visible = true
 		
-		button.text = "opnieuw"
-		button.disabled = false
+		button.visible = false
+
+
+func _on_retry_button_pressed() -> void:
+	playIntro()
+	squirrel.play("idle")
+	label.text = ""
+	retryButton.visible = false
+	button.visible = true
+	button.disabled = false
+
+func _on_next_button_pressed() -> void:
+	var reload = EndGame.AddOne()
+	if reload:
+		get_tree().change_scene_to_file("res://EndGame.tscn")
+	else:
+		get_tree().reload_current_scene()
