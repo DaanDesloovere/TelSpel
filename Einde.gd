@@ -10,9 +10,10 @@ func _process(delta: float) -> void:
 	if !playing:
 		playing = true
 		audioPlayer.play()
+		await audioPlayer.finished
 		squirrel.play("run")
 		var tween = create_tween()
-		tween.tween_property(squirrel, "position", Vector2(1500, squirrel.position.y), 2.5)
+		tween.tween_property(squirrel, "position", Vector2(1500, squirrel.position.y), 5.0)
 		await tween.finished
 		button.visible = true
 		

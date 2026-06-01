@@ -84,10 +84,10 @@ script = ExtResource("1_tf8rs")
 
 [node name="Squirrel" type="AnimatedSprite2D" parent="." unique_id=1839745519]
 texture_filter = 1
-position = Vector2(-176.99994, 400)
+position = Vector2(250, 400)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_h32ra")
-animation = &"run"
+animation = &"idle"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1023553614]
 stream = ExtResource("3_h32ra")

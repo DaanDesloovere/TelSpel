@@ -14,3 +14,10 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+TelSpel V2 Mac.app/Contents/_CodeSignature/CodeResources
+TelSpel V2 Mac.app/Contents/Info.plist
+TelSpel V2 Mac.app/Contents/MacOS/TelSpel
+TelSpel V2 Mac.app/Contents/PkgInfo
+TelSpel V2 Mac.app/Contents/Resources/icon.icns
+TelSpel V2 Mac.app/Contents/Resources/PrivacyInfo.xcprivacy
+TelSpel V2 Mac.app/Contents/Resources/TelSpel.pck

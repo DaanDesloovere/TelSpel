@@ -8,6 +8,8 @@ extends Node2D
 @onready var button: Button = $CanvasLayer/Button
 @onready var retryButton : Button = $CanvasLayer/RetryButton
 @onready var nextButton : Button = $CanvasLayer/NextButton
+@onready var nutArea : Area2D = $NutSpawnArea
+@onready var nutAreaCollision : CollisionShape2D = $NutSpawnArea/NutSpawnShape
 
 @export var countSounds: Array[AudioStream]  # drag in sounds 1.wav, 2.wav... in order
 @export var victorySound: AudioStream
@@ -104,6 +106,7 @@ func _on_timer_timeout():
 			audioPlayer.stream = tryAgainSound
 			audioPlayer.play()
 			squirrel.play("sad")
+			await audioPlayer.finished
 			retryButton.visible = true
 		
 		button.visible = false
@@ -116,7 +119,13 @@ func _on_retry_button_pressed() -> void:
 	retryButton.visible = false
 	button.visible = true
 	button.disabled = false
-
+	for nut in EndGame.nuts:
+		var size = nutAreaCollision.shape.size / 2
+		nut.global_position = nutArea.global_position + Vector2(
+			randf_range(-size.x, size.x),
+			randf_range(-size.y, size.y)
+		)
+	
 func _on_next_button_pressed() -> void:
 	var reload = EndGame.AddOne()
 	if reload:

@@ -31,6 +31,10 @@
 [ext_resource type="Texture2D" uid="uid://b7wvbgd18gqyq" path="res://Sprites/check.png" id="26_hri7i"]
 [ext_resource type="Texture2D" uid="uid://brreaxnayqwox" path="res://Sprites/retry.png" id="27_w3rk5"]
 [ext_resource type="Texture2D" uid="uid://dqu7nt3be6pq8" path="res://Sprites/next.png" id="29_oye8v"]
+[ext_resource type="Texture2D" uid="uid://bv1u0eu8n6164" path="res://Sprites/bushOrange2.png" id="32_o7g6l"]
+[ext_resource type="Texture2D" uid="uid://gyyflk8akk16" path="res://Sprites/bushOrange1.png" id="33_vi5kq"]
+[ext_resource type="Texture2D" uid="uid://be24435l8w2k1" path="res://Sprites/treeOrange.png" id="34_5mkgo"]
+[ext_resource type="Texture2D" uid="uid://ccy8v28olkthh" path="res://Sprites/treePineOrange.png" id="35_3ccbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_devvj"]
 atlas = ExtResource("19_3b0ty")
@@ -109,16 +113,18 @@ scale = Vector2(0.64605963, 0.64605963)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=223336712]
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=1192024321]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.975
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.025
-offset_left = -100.20007
-offset_top = 167.8
-offset_right = -0.20007324
-offset_bottom = 217.8
+offset_left = -173.20007
+offset_top = 133.8
+offset_right = -73.20007
+offset_bottom = 183.8
 grow_horizontal = 0
+scale = Vector2(1.75, 1.75)
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("24_xrxkg")
@@ -128,16 +134,18 @@ expand_icon = true
 
 [node name="RetryButton" type="Button" parent="CanvasLayer" unique_id=348871967]
 visible = false
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.975
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.025
-offset_left = -100.20007
-offset_top = 167.8
-offset_right = -0.20007324
-offset_bottom = 217.8
+offset_left = -173.20007
+offset_top = 133.8
+offset_right = -73.20007
+offset_bottom = 183.8
 grow_horizontal = 0
+scale = Vector2(1.75, 1.75)
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("24_xrxkg")
@@ -147,16 +155,18 @@ expand_icon = true
 
 [node name="NextButton" type="Button" parent="CanvasLayer" unique_id=1721591446]
 visible = false
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.975
 anchor_top = 0.025
 anchor_right = 0.975
 anchor_bottom = 0.025
-offset_left = -100.20007
-offset_top = 167.8
-offset_right = -0.20007324
-offset_bottom = 217.8
+offset_left = -173.20007
+offset_top = 133.8
+offset_right = -73.20007
+offset_bottom = 183.8
 grow_horizontal = 0
+scale = Vector2(1.75, 1.75)
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("24_xrxkg")
@@ -210,19 +220,59 @@ position = Vector2(318, 422)
 volume_db = 6.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1599433402]
-z_index = -1
+z_index = -2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -77.0
-offset_top = -600.0
-offset_right = 947.0
-offset_bottom = 424.0
+offset_left = -83.0
+offset_top = -592.0
+offset_right = 941.0
+offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 theme = ExtResource("24_xrxkg")
 texture = ExtResource("23_bg4s2")
+
+[node name="BushOrange2" type="Sprite2D" parent="." unique_id=479301835]
+z_index = -1
+position = Vector2(71, 580)
+texture = ExtResource("32_o7g6l")
+
+[node name="BushOrange1" type="Sprite2D" parent="." unique_id=1650408236]
+z_index = -1
+position = Vector2(387, 541)
+texture = ExtResource("33_vi5kq")
+
+[node name="TreeOrange" type="Sprite2D" parent="." unique_id=1955312021]
+z_index = -1
+position = Vector2(598, 144)
+texture = ExtResource("34_5mkgo")
+
+[node name="TreePineOrange" type="Sprite2D" parent="." unique_id=2126327050]
+z_index = -1
+position = Vector2(428, 282)
+texture = ExtResource("35_3ccbu")
+
+[node name="BushOrange3" type="Sprite2D" parent="." unique_id=1708452147]
+z_index = -1
+position = Vector2(175, 487)
+texture = ExtResource("32_o7g6l")
+
+[node name="BushOrange4" type="Sprite2D" parent="." unique_id=555884409]
+z_index = -1
+position = Vector2(218, 588)
+texture = ExtResource("33_vi5kq")
+
+[node name="BushOrange5" type="Sprite2D" parent="." unique_id=317235465]
+z_index = -1
+position = Vector2(559, 469)
+texture = ExtResource("33_vi5kq")
+
+[node name="BushOrange6" type="Sprite2D" parent="." unique_id=1474691325]
+z_index = -1
+position = Vector2(31, 434)
+texture = ExtResource("32_o7g6l")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RetryButton" to="." method="_on_retry_button_pressed"]
