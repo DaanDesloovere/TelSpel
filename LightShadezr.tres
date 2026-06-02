@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b1hujrp5t6dnf"]
+
+[ext_resource type="Shader" uid="uid://ctmuxt3y0p3r2" path="res://Assets/Basket.gdshader" id="1_cxgn6"]
+
+[resource]
+shader = ExtResource("1_cxgn6")
+shader_parameter/lighten = 0.3

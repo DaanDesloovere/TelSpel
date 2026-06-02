@@ -10,6 +10,7 @@ extends Node2D
 @onready var nextButton : Button = $CanvasLayer/NextButton
 @onready var nutArea : Area2D = $NutSpawnArea
 @onready var nutAreaCollision : CollisionShape2D = $NutSpawnArea/NutSpawnShape
+@onready var nextTimer : Timer = $NextTimer
 
 @export var countSounds: Array[AudioStream]  # drag in sounds 1.wav, 2.wav... in order
 @export var victorySound: AudioStream
@@ -101,6 +102,7 @@ func _on_timer_timeout():
 			audioPlayer.stream = victorySound
 			audioPlayer.play()
 			nextButton.visible = true
+			nextTimer.start()
 		else:
 			# verkeerd aantal noten
 			audioPlayer.stream = tryAgainSound
@@ -132,3 +134,7 @@ func _on_next_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://EndGame.tscn")
 	else:
 		get_tree().reload_current_scene()
+
+
+func _on_next_timer_timeout() -> void:
+	_on_next_button_pressed()

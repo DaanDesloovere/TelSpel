@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://bovgpbnh870p3" path="res://Theme.tres" id="2_tf8rs"]
 [ext_resource type="AudioStream" uid="uid://8tim277fxpyc" path="res://Sounds/thanks.ogg" id="3_h32ra"]
 [ext_resource type="Texture2D" uid="uid://clvhw4bkdtsgq" path="res://Sprites/background.png" id="3_lvmfc"]
+[ext_resource type="Material" uid="uid://b28yxtcvtj5cv" path="res://backgroundShader.tres" id="4_vm4lo"]
 [ext_resource type="Texture2D" uid="uid://brreaxnayqwox" path="res://Sprites/retry.png" id="6_h32ra"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_devvj"]
@@ -95,6 +96,7 @@ volume_db = 6.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=784015695]
 z_index = -1
+material = ExtResource("4_vm4lo")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

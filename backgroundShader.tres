@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b28yxtcvtj5cv"]
+
+[ext_resource type="Shader" uid="uid://kvfn8vnpv4c2" path="res://background.gdshader" id="1_g0ov0"]
+
+[resource]
+shader = ExtResource("1_g0ov0")
+shader_parameter/lighten = 0.3

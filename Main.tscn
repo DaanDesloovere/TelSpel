@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b7wvbgd18gqyq" path="res://Sprites/check.png" id="26_hri7i"]
 [ext_resource type="Texture2D" uid="uid://brreaxnayqwox" path="res://Sprites/retry.png" id="27_w3rk5"]
 [ext_resource type="Texture2D" uid="uid://dqu7nt3be6pq8" path="res://Sprites/next.png" id="29_oye8v"]
+[ext_resource type="Material" uid="uid://b28yxtcvtj5cv" path="res://backgroundShader.tres" id="31_vi5kq"]
 [ext_resource type="Texture2D" uid="uid://bv1u0eu8n6164" path="res://Sprites/bushOrange2.png" id="32_o7g6l"]
 [ext_resource type="Texture2D" uid="uid://gyyflk8akk16" path="res://Sprites/bushOrange1.png" id="33_vi5kq"]
 [ext_resource type="Texture2D" uid="uid://be24435l8w2k1" path="res://Sprites/treeOrange.png" id="34_5mkgo"]
@@ -221,6 +222,7 @@ volume_db = 6.0
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1599433402]
 z_index = -2
+material = ExtResource("31_vi5kq")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -274,8 +276,13 @@ z_index = -1
 position = Vector2(31, 434)
 texture = ExtResource("32_o7g6l")
 
+[node name="NextTimer" type="Timer" parent="." unique_id=1415331439]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/NextButton" to="." method="_on_retry_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="NextTimer" to="." method="_on_next_timer_timeout"]
